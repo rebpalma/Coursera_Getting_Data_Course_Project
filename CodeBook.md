@@ -1,21 +1,29 @@
-#####################################################
-GETTING AND CLEANING DATA - NOVEMBER 2014
-CODE BOOK FOR THE COURSE PROJECT
-Author: Rebeca Palma Polo
-#####################################################
+
+##GETTING AND CLEANING DATA - NOVEMBER 2014
+
+###CODE BOOK FOR THE COURSE PROJECT
+
+###Author: Rebeca Palma Polo
+
+----
 
 Summary of this Code Book:
-1. GOALS OF THIS EXERCISE
-2. INFORMATION ABOUT THE ORIGINAL DATA SET
-3. INFORMATION ABOUT THE TIDY DATA SET
-4. FINAL NOTE ON UNITS OF MEASUREMENT
 
+(1) GOALS OF THIS EXERCISE
 
-1. GOALS OF THIS EXERCISE
+(2) INFORMATION ABOUT THE ORIGINAL DATA SET
+
+(3) INFORMATION ABOUT THE TIDY DATA SET
+
+(4) FINAL NOTE ON UNITS OF MEASUREMENT
+
+----
+
+### (1) GOALS OF THIS EXERCISE
 
 The aim of this course project is to download the information provided in the "Human Activity Recognition Using Smartphones Data Set" (available here https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip), combine the data sets in an appropiate manner, extract the relevant information, tidy up the resulting data table and upload to Github this new data set as a txt file.
 
-2. INFORMATION ABOUT THE ORIGINAL DATA SET
+### (2) INFORMATION ABOUT THE ORIGINAL DATA SET
 
 A full description of the original datasets is available at the site where the data were obtained: 
 
@@ -23,14 +31,13 @@ http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartpho
 
 This is an excerpt from the "README.txt" file that is included in the compressed folder "Dataset.zip":
 
--------------
+_._._._._._._._._._._._._._._._
 
 The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
 
 The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain. See 'features_info.txt' for more details. 
 
 For each record it is provided:
-======================================
 
 - Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
 - Triaxial Angular velocity from the gyroscope. 
@@ -38,19 +45,25 @@ For each record it is provided:
 - Its activity label. 
 - An identifier of the subject who carried out the experiment.
 
------------
+_._._._._._._._._._._._._._._._
 
-3. INFORMATION ABOUT THE TIDY DATA SET
+##(3) INFORMATION ABOUT THE TIDY DATA SET
 
 In the exercise, we were asked to create one R script called run_analysis.R that does the following:
-(1) Merges the training and the test sets to create one data set.
-(2) Extracts only the measurements on the mean and standard deviation for each measurement. 
-(3) Uses descriptive activity names to name the activities in the data set
-(4) Appropriately labels the data set with descriptive variable names. 
-(5) From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-[...] Upload the tidy data set created in step 5 of the instructions. Please upload your data set as a txt file created with write.table() using row.name=FALSE.
 
-3.1 TRANSFORMATIONS PERFORMED TO THE ORIGINAL DATA
+* Merges the training and test sets into a single data set.
+
+* Selects only the measurements on the mean and standard deviation for each measurement. 
+
+* Uses descriptive activity names for the activities in the data set.
+
+* Appropriately labels the data set columns with descriptive variable names.
+
+* From the data set in the previous step, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
+And finally, upload the tidy data set created in step 5 of the instructions. The data set must be uploaded as a txt file created with write.table() and using row.name=FALSE.
+
+####(3.1) TRANSFORMATIONS PERFORMED TO THE ORIGINAL DATA
 
 Using R i386 3.1.2 and RStudio 0.98.507, the following operations were performed:
 
@@ -68,13 +81,13 @@ Using R i386 3.1.2 and RStudio 0.98.507, the following operations were performed
 
 - Finally, I saved the resulting tidy data set as the text file "tidy_data.txt" using write.table() and row.name=FALSE as requested.
 
-3.2 DESCRIPTION OF THE DATA
+####(3.2) DESCRIPTION OF THE DATA
 
 The file tidy_data.txt contains 180 rows and 88 columns.
 In each row in the text file, for each of the 30 participants (column 1), and for each activity that the subject performed (column 2), we can observe the average measurement achieved in each of the 86 variables that are either a mean or a standard deviation of the original measurements of the experiment (columns 3 to 88).
 
 
-3.3 DESCRIPTION OF THE VARIABLES
+####(3.3) DESCRIPTION OF THE VARIABLES
 
 Column 1: Variable "subject" -> identifies the subject who performed the activity for each window sample. Its values range from 1 to 30.
 
@@ -174,10 +187,9 @@ These are the 86 variables selected and then aggregated to show the average per 
 
 From the 'features_info.txt' file contained in the 'Dataset.zip" we obtain the following information regarding the meaning of the names of the variables:
 
--------------------------------
+_._._._._._._._._._._._._._._._
 
 Feature Selection 
-=================
 
 The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
 
@@ -236,11 +248,11 @@ tBodyGyroJerkMean
 
 The complete list of variables of each feature vector is available in 'features.txt'
 
------------------------
+_._._._._._._._._._._._._._._._
 
-4. FINAL NOTE ON UNITS OF MEASUREMENT
+###(4) FINAL NOTE ON UNITS OF MEASUREMENT
 
-As described in the file 'README.txt' of the original dataset in 'Dataset.zip' ):
+As described in the file 'README.txt' of the original dataset in 'Dataset.zip':
 
 - The acceleration signal from the smartphone accelerometer X axis is measured in standard gravity units 'g'. The same description applies for the 'total_acc_x_train.txt' and 'total_acc_z_train.txt' files for the Y and Z axis. 
 - The angular velocity vector is measured by the gyroscope for each window sample, and the units are radians/second.
